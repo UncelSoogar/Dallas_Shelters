@@ -1,5 +1,4 @@
 from flask import Flask, render_template, url_for, request
-from flask_bootstrap import Bootstrap
 import pickle
 import pandas as pd
 from sklearn.ensemble import GradientBoostingClassifier
@@ -20,6 +19,10 @@ infile = open(filename,'rb')
 cat_model = pickle.load(infile)
 infile.close()
 
+@app.route('/dash_cat_dog')
+def dash_cat_dog():
+    return render_template('dash_cat_dog.html')
+
 filename = 'static/models/dog_scaler.sav'
 infile = open(filename,'rb')
 dog_scaler = pickle.load(infile)
@@ -29,7 +32,6 @@ filename = 'static/models/dog_model.sav'
 infile = open(filename,'rb')
 dog_model = pickle.load(infile)
 infile.close()
-Bootstrap(app)
 
 
 #ROUTES FOR PAGES

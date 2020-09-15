@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Gimme Shelter</title>
+<title>Dog Dashboard</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,7 +23,7 @@
     <script type="text/javascript">
         function initViz() {
             var containerDiv = document.getElementById("vizContainer"),
-                url = "https://public.tableau.com/views/FinalProject3_15995531841750/DallasShelterCatDogCountbyZipcodeDB?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link",
+                url = "https://public.tableau.com/views/FinalProject3_15995531841750/DallasShelterDogOutcomeDB?:language=en&:display_count=y&:origin=viz_share_link",
                 options = {
                     hideTabs: true,
                     onFirstInteractive: function() {
@@ -45,10 +45,10 @@
     </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="/">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dashboards</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item " href="/dash_main">Main Dashboard<span class="sr-only"></span></a>
@@ -72,53 +72,21 @@
             </ul>
             </div>
     </nav>
-
     <!-- Load Tableau Viz on load-->
 
 
-    <!-- !PAGE CONTENT! -->
-    <!-- Our rows function in containers (grid created). -->
-
 
     <!-- Creates the Overall Grid -->
-    <div class="container">
-
-        <!-- First Row -->
-        <div class="row">
 
 
-            <!-- Second Row -->
-            <div class="row">
+    <!-- Tableau Viz -->
+    <div class="row justify-content-end">
+        <div class="col-lg-12 bordered">
+            <center>
+                <h1>Tableau Dashboard</h1>
+                <div id="vizContainer" style="width:100%; height:800px;"></div>
+            </center>
 
-                <!-- Intro w/ Text -->
-                <div class="col-md-3 bordered">
-                    <p>
-                        Approximately 6.5 million animals pass through U.S. animal shelters every year. Of these animals, 3.2 million end up adopted, while 1.5 million are euthanized. As city and county budgets are shrinking in the current economic downturn, being able to determine
-                        which animals are likely to be adopted vs which ones are likely to be euthanized can help ease the strain on dwindling resources.</p>
-                    <p>This project uses data from <a href="https://www.dallasopendata.com/" target="_blank">Dallas OpenData</a>. Spreadsheets from Jan 2015 –Aug 2020 were analyzed to explore what determines the outcome of an animal in a Dallas Shelter,
-                        and where those animals were located. This dataset includes 211,216 animals. This was filtered down to eliminate non-viable animals, (dead on arrival, or both untreatable and contagious), and animals that were recorded in the shelter
-                        for over 60 days. This data was analyzed using tableau and is available in the 'Dashboard' menu.</p>
-                    <p>The data was then divided into cats and dogs, and predictive models were built using <a href="https://scikit-learn.org/stable/" target="_blank">SciKit-Learn's</a> 'Gradient Boost Classifier.' These models can be tested in the 'Predictions'
-                        menu.
-                    </p>
-                    <p>For more information on our data cleaning and please look at our 'Methodology' page. Don't forget to like and subscribe at the 'About Us' Page. Stay cool all you cats and kittens.
-                    </p>
-
-                </div>
-
-
-
-                <!-- Tableau Viz -->
-
-                <div class="col-md-9 bordered">
-                    <div class="justify-content-end"></div>
-                    <div id="vizContainer" style="width:100%; height:700px;"></div>
-
-
-                </div>
-            </div>
-
-            <!-- End Page Content -->
         </div>
     </div>
     <!--Footer-->
@@ -129,8 +97,6 @@
                 <h4>Design and analysis by: <a href="https://github.com/anag33">Ana Gill,</a> <a href="https://github.com/chris-krokus">Chris Krokus,</a> <a href="https://github.com/Chriztion">Christion Lankford,</a> <a href="https://github.com/UncelSoogar">Chris Lichliter,</a>     Source Code Hosted on <a href="https://github.com/Chriztion/Project2-Group-4">GitHub.</a>   Data from <a href="https://www.dallasopendata.com/" target="_blank">Dallas OpenData</a>.</h4>
             </span>
             </footer>
-        </div>
-    </div>
 </body>
 
 </html>
