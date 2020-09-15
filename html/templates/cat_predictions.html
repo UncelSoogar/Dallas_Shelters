@@ -33,81 +33,80 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+      <span class="navbar-toggler-icon"></span>
+    </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dashboards</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item " href="/dash_main">Cat & Dog<span class="sr-only"></span></a>
+                        <a class="dropdown-item " href="/dash_cat">Cat  <span class="sr-only"></span></a>
+                        <a class="dropdown-item" href="/dash_dog">Dog </a>
                 </li>
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Predictions</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item " href="#">Cat Prediction <span class="sr-only">(current)</span></a>
-                        <a class="dropdown-item" href="#">Dog Predictions</a>
+                        <a class="dropdown-item " href="/cat_predictions">Cat Prediction <span class="sr-only"></span></a>
+                        <a class="dropdown-item" href="/dog_predictions">Dog Predictions</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Methodology</a>
+                    <a class="nav-link" href="/methodology">Methodology</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="/about">About Us</a>
                 </li>
-
             </ul>
-        </div>
+            </div>
     </nav>
 
 
-    <body>
-
-        <!-- !PAGE CONTENT! -->
-        <!-- Our rows function in containers (grid created). -->
 
 
-        <!-- Creates the Overall Grid -->
-        <div class="container">
-            <div class="row">
-                <!-- First of two columns -->
+    <!-- !PAGE CONTENT! -->
+    <!-- Our rows function in containers (grid created). -->
 
-                <!-- Second of two columns -->
-                <div class="col-md-8">
-                    <div class="row">
-                        <h1>Cat Predictions</h1>
-                    </div>
-                    <div class="row">
-                        <form method="POST" action="/cat_predict">
-                            <nav class="navbar navbar-expand-lg">
-                                <ul class="form-group nav-item">
+
+    <!-- Creates the Overall Grid -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <h1>Cat Predictions</h1>
+                </div>
+                <div class="row">
+                    <form method="POST" action="/cat_predict">
+                        <table>
+                            <tr>
+                                <td class="form-group">
                                     <label for="cat_breed"> Cat Breed </label>
                                     <select class="form-control" id="cat_breed" name="cat_breed">
                                             <option value ="Short Hair">Short Hair</option>
                                             <option value ="Medium Hair">Medium Hair</option>
                                             <option value = "Long Hair">Long Hair</option>
                                         </select>
-                                </ul>
-                                <ul class="form-group nav-item">
+                                </td>
+                                <td class="form-group">
                                     <label for="cat_origin">Origin </label>
                                     <select class="form-control" id="cat_origin" name="cat_origin">
                                             <option value ="Field">Field</option>
                                             <option value ="Over the Counter">Over the Counter</option>
                                     </select>
-                                </ul>
-                                <ul class="form-group nav-item">
+                                </td>
+                                <td class="form-group">
                                     <label for="cat_chip"> Chip Status </label>
                                     <select class="form-control" id="cat_chip" name="cat_chip">
                                             <option value ="Chip">Chip</option>
                                             <option value ="No Chip">No Chip</option>
                                             <option value ="Unable to Scan">Unable to Scan</option>
                                         </select>
-                                </ul>
-                                <ul class="form-group">
+                                </td>
+                                <td class="form-group">
                                     <label for="cat_intake"> Intake Condition </label>
                                     <select class="form-control" id="cat_intake" name="cat_intake">
                                             <option value = "Healthy">Healthy</option>
@@ -116,84 +115,96 @@
                                             <option value = "Untreatable, Non-Contagious">Untreatable, Non-Contagious</option>
                                             <option value = "Contagious">Contagious</option>
                                         </select>
-                                </ul>
-                                <ul class="form-group">
+                                </td>
+                                <td class="form-group">
                                     <label for="cat_days" class="form-label">Length of Stay(Days)</label>
                                     <div>
                                         <input type="text" class="form-control" id="cat_days" name="cat_days">
                                     </div>
-                                </ul>
-                                <ul>
+                                </td>
+                                <td>
                                     <fieldset class="form-group">
                                         <button type="submit" class="btn btn-primary">Submit</button>
 
                                     </fieldset>
-                                </ul>
-                            </nav>
-                        </form>
-                    </div>
-
-                    <!--test return-->
-                    <div>
-                        <h2>You selected:</h2>
-                        <table>
-                            <tr>
-                                <td>Cat Breed:</td>
-                                <td>{{ cat_breed }}</td>
-                            </tr>
-                            <tr>
-                                <td>Cat Origin:</td>
-                                <td>{{ cat_origin }}</td>
-                            </tr>
-                            <tr>
-                                <td>Chip Status:</td>
-                                <td>{{ cat_chip }}</td>
-                            </tr>
-                            <tr>
-                                <td>Intake Condition:</td>
-                                <td>{{ cat_intake }}</td>
-                            </tr>
-                            <tr>
-                                <td>Length of Stay:</td>
-                                <td>{{ cat_days }}</td>
-                            </tr>
-
-                        </table>
-                        <h2> Your cat is likely to be {{ cat_result }}.</h2>
-                        <table>
-                            <th>Result</th>
-                            <th>Probability</th>
-                            <tr>
-                                <td>Adopted:</td>
-                                <td>{{ adopt_probs }} </td>
-                            </tr>
-                            <tr>
-                                <td>Euthanized:</td>
-                                <td>{{ euth_probs }} </td>
-                            </tr>
-                            <tr>
-                                <td>Returned to Owner:</td>
-                                <td>{{ owner_probs }} </td>
-                            </tr>
-                            <tr>
-                                <td>Transfer/Foster:</td>
-                                <td>{{ trans_probs }} </td>
+                                </td>
                             </tr>
                         </table>
-                    </div>
-
-
-                    <!-- End Page Content -->
+                    </form>
                 </div>
+            </div>
+        </div>
+        <hr>
+        <!--3 Cols. 1st data tables for selection and results. 2nd image and results, 3rd as description and glossary-->
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    <h2>You selected:</h2>
+                    <table>
+                        <tr>
+                            <td>Cat Breed:</td>
+                            <td>{{ cat_breed }}</td>
+                        </tr>
+                        <tr>
+                            <td>Cat Origin:</td>
+                            <td>{{ cat_origin }}</td>
+                        </tr>
+                        <tr>
+                            <td>Chip Status:</td>
+                            <td>{{ cat_chip }}</td>
+                        </tr>
+                        <tr>
+                            <td>Intake Condition:</td>
+                            <td>{{ cat_intake }}</td>
+                        </tr>
+                        <tr>
+                            <td>Length of Stay:</td>
+                            <td>{{ cat_days }}</td>
+                        </tr>
 
-                <!-- Footer -->
-                <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large">
+                    </table>
+                    <hr>
+                    <br>
+                    <h2> Your cat is likely
+                        <br> to be {{ cat_result }}</h2>
+                    <table>
+                        <th>Result</th>
+                        <th>Probability</th>
+                        <tr>
+                            <td>Adopted:</td>
+                            <td>{{ adopt_probs }} </td>
+                        </tr>
+                        <tr>
+                            <td>Euthanized:</td>
+                            <td>{{ euth_probs }} </td>
+                        </tr>
+                        <tr>
+                            <td>Returned to Owner:</td>
+                            <td>{{ owner_probs }} </td>
+                        </tr>
+                        <tr>
+                            <td>Transfer/Foster:</td>
+                            <td>{{ trans_probs }} </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--2nd col-->
+            <div class="col-md-3">
+                <img src="{{  cat_img }}">
+            </div>
+        </div>
+        <!-- End Page Content -->
+    </div>
 
-                    <i class="fa fa-linkedin w3-hover-opacity"></i>
-                    <i style="font-size:24px" class="fa">&#xf09b;</i>
-                    <p>Created by <a href="https://github.com/chris-krokus/Project-3-Group-4" target="_blank" class="w3-hover-text-green">.</a></p>
-                </footer>
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large">
 
-    </body>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+        <i style="font-size:24px" class="fa">&#xf09b;</i>
+        <p>Created by <a href="https://github.com/chris-krokus/Project-3-Group-4" target="_blank" class="w3-hover-text-green">.</a></p>
+    </footer>
+
+</body>
 
 </html>

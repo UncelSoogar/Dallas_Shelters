@@ -31,13 +31,41 @@ dog_model = pickle.load(infile)
 infile.close()
 Bootstrap(app)
 
+
+#ROUTES FOR PAGES
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/about')
+def about_us():
+    return render_template('about.html')
+
+@app.route('/dash_cat')
+def dash_cat():
+    return render_template('dash_cat.html')
+
+@app.route('/dash_dog')
+def dash_dog():
+    return render_template('dash_dog.html')
+
+@app.route('/dash_main')
+def dash_main():
+    return render_template('dash_main.html')
+
+@app.route('/methodology')
+def methodology():
+    return render_template('methodology.html')
+
 @app.route('/cat_predictions')
 def cat_predicionts():   
     return render_template('cat_predictions.html')
+
+@app.route('/dog_predictions')
+def dog_predicionts():   
+    return render_template('dog_predictions.html')
+
 
 @app.route('/cat_predict', methods=['POST'])
 def cat_predict():
@@ -121,16 +149,16 @@ def cat_predict():
         #change result to meaningful outcome
         if cat_result== 0:
             cat_result = "adopted!"
-            cat_img = 'cat_adopted'
+            cat_img = 'static/imgs/cat_adopt.jpg'
         elif cat_result == 1:
             cat_result = "euthanized."
-            cat_img = 'cat_euth'
+            cat_img = 'static/imgs/cat_euth.jpg'
         elif cat_result == 2:
             cat_result = "returned to owner"
-            cat_img = 'cat_own'
+            cat_img = 'static/imgs/pet_own.jpg'
         else:
             cat_result = "transfered or fostered"
-            cat_img = "cat_trans"
+            cat_img = "static/imgs/cat_trans.jpg"
 
         #probs
         cat_probs = cat_model.predict_proba(test_cat)
@@ -141,11 +169,9 @@ def cat_predict():
 
         return render_template('cat_predictions.html', cat_breed = cat_breed, cat_origin = cat_origin,
          cat_chip = cat_chip, cat_intake = cat_intake, cat_days = cat_days, cat_result = cat_result,
-         adopt_probs = adopt_probs, euth_probs =euth_probs, owner_probs = owner_probs, trans_probs = trans_probs)
+         adopt_probs = adopt_probs, euth_probs =euth_probs, owner_probs = owner_probs, trans_probs = trans_probs, cat_img = cat_img)
 
-@app.route('/dog_predictions')
-def dog_predicionts():   
-    return render_template('dog_predictions.html')
+
 
 @app.route('/dog_predict', methods=['POST'])
 def dog_predict():
@@ -246,16 +272,16 @@ def dog_predict():
         #change result to meaningful outcome
         if dog_result== 0:
             dog_result = "adopted!"
-            dog_img = 'dog_adopted'
+            dog_img = 'static/imgs/dog_adopt.jpg'
         elif dog_result == 1:
             dog_result = "euthanized."
-            dog_img = 'dog_euth'
+            dog_img = 'static/imgs/dog_euth.jpg'
         elif dog_result == 2:
-            dog_result = "returned to owner"
-            dog_img = 'dog_own'
+            dog_result = "returned to owner."
+            dog_img = 'static/imgs/pet_own.jpg'
         else:
-            dog_result = "transfered or fostered"
-            dog_img = "dog_trans"
+            dog_result = "transfered or fostered."
+            dog_img = "static/imgs/dog_trans.jpg"
 
         #probs
         dog_probs = dog_model.predict_proba(test_dog)
@@ -266,7 +292,7 @@ def dog_predict():
 
         return render_template('dog_predictions.html', dog_breed = dog_breed, dog_origin = dog_origin,
          dog_chip = dog_chip, dog_intake = dog_intake, dog_days = dog_days, dog_result = dog_result,
-         adopt_probs = adopt_probs, euth_probs =euth_probs, owner_probs = owner_probs, trans_probs = trans_probs)
+         adopt_probs = adopt_probs, euth_probs =euth_probs, owner_probs = owner_probs, trans_probs = trans_probs, dog_img = dog_img)
 
 if __name__ == '__main__':
     app.run(debug=True)

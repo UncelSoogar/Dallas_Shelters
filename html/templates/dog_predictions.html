@@ -31,37 +31,39 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+      <span class="navbar-toggler-icon"></span>
+    </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dashboards</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item " href="/dash_main">Cat & Dog<span class="sr-only"></span></a>
+                        <a class="dropdown-item " href="/dash_cat">Cat  <span class="sr-only"></span></a>
+                        <a class="dropdown-item" href="/dash_dog">Dog </a>
                 </li>
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Predictions</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item " href="#">dog Prediction <span class="sr-only">(current)</span></a>
-                        <a class="dropdown-item" href="#">Dog Predictions</a>
+                        <a class="dropdown-item " href="/cat_predictions">Cat Prediction <span class="sr-only"></span></a>
+                        <a class="dropdown-item" href="/dog_predictions">Dog Predictions</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Methodology</a>
+                    <a class="nav-link" href="/methodology">Methodology</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="/about">About Us</a>
                 </li>
-
             </ul>
-        </div>
+            </div>
     </nav>
 
 
@@ -74,80 +76,83 @@
         <!-- Creates the Overall Grid -->
         <div class="container">
             <div class="row">
-                <!-- First of two columns -->
-
-                <!-- Second of two columns -->
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="row">
-                        <h1>dog Predictions</h1>
+                        <h1>Dog Predictions</h1>
                     </div>
                     <div class="row">
                         <form method="POST" action="/dog_predict">
-                            <nav class="navbar navbar-expand-lg">
-                                <ul class="form-group nav-item">
-                                    <label for="dog_breed"> dog Breed </label>
-                                    <select class="form-control" id="dog_breed" name="dog_breed">
-                                            <option value ="Chihuahua">Chihuahua</option>
-                                            <option value ="Corgi">Corgi</option>
-                                            <option value = "Pitbull">Pitbull</option>
-                                            <option value = "Pug">Pug</option>
-                                            <option value = "Retriever">Retriever</option>
-                                            <option value = "Shepherd">Shepherd</option>
-                                            <option value = "Terrier">Terrier</option>
-                                            <option value = "Other">Other</option>
+                            <table>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="dog_breed"> Dog Breed </label>
+                                        <select class="form-control" id="dog_breed" name="dog_breed">
+                                                <option value ="Chihuahua">Chihuahua</option>
+                                                <option value ="Corgi">Corgi</option>
+                                                <option value = "Pitbull">Pitbull</option>
+                                                <option value = "Pug">Pug</option>
+                                                <option value = "Retriever">Retriever</option>
+                                                <option value = "Shepherd">Shepherd</option>
+                                                <option value = "Terrier">Terrier</option>
+                                                <option value = "Other">Other</option>
+                                            </select>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="dog_origin">Origin </label>
+                                        <select class="form-control" id="dog_origin" name="dog_origin">
+                                                <option value ="Field">Field</option>
+                                                <option value ="Over the Counter">Over the Counter</option>
                                         </select>
-                                </ul>
-                                <ul class="form-group nav-item">
-                                    <label for="dog_origin">Origin </label>
-                                    <select class="form-control" id="dog_origin" name="dog_origin">
-                                            <option value ="Field">Field</option>
-                                            <option value ="Over the Counter">Over the Counter</option>
-                                    </select>
-                                </ul>
-                                <ul class="form-group nav-item">
-                                    <label for="dog_chip"> Chip Status </label>
-                                    <select class="form-control" id="dog_chip" name="dog_chip">
-                                            <option value ="Chip">Chip</option>
-                                            <option value ="No Chip">No Chip</option>
-                                            <option value ="Unable to Scan">Unable to Scan</option>
-                                        </select>
-                                </ul>
-                                <ul class="form-group">
-                                    <label for="dog_intake"> Intake Condition </label>
-                                    <select class="form-control" id="dog_intake" name="dog_intake">
-                                            <option value = "Healthy">Healthy</option>
-                                            <option value = "Rehabilitable, Non-Contagious">Rehabilitable, Non-Contagious</option>
-                                            <option value = "Manageable, Non-Contagious">Manageable, Non-Contagious</option>
-                                            <option value = "Untreatable, Non-Contagious">Untreatable, Non-Contagious</option>
-                                            <option value = "Contagious">Contagious</option>
-                                        </select>
-                                </ul>
-                                <ul class="form-group">
-                                    <label for="dog_days" class="form-label">Length of Stay(Days)</label>
-                                    <div>
-                                        <input type="text" class="form-control" id="dog_days" name="dog_days">
-                                    </div>
-                                </ul>
-                                <ul>
-                                    <fieldset class="form-group">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="dog_chip"> Chip Status </label>
+                                        <select class="form-control" id="dog_chip" name="dog_chip">
+                                                <option value ="Chip">Chip</option>
+                                                <option value ="No Chip">No Chip</option>
+                                                <option value ="Unable to Scan">Unable to Scan</option>
+                                            </select>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="dog_intake"> Intake Condition </label>
+                                        <select class="form-control" id="dog_intake" name="dog_intake">
+                                                <option value = "Healthy">Healthy</option>
+                                                <option value = "Rehabilitable, Non-Contagious">Rehabilitable, Non-Contagious</option>
+                                                <option value = "Manageable, Non-Contagious">Manageable, Non-Contagious</option>
+                                                <option value = "Untreatable, Non-Contagious">Untreatable, Non-Contagious</option>
+                                                <option value = "Contagious">Contagious</option>
+                                            </select>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="dog_days" class="form-label">Length of Stay(Days)</label>
+                                        <div>
+                                            <input type="text" class="form-control" id="dog_days" name="dog_days">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <fieldset class="form-group">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
 
-                                    </fieldset>
-                                </ul>
-                            </nav>
+                                        </fieldset>
+                                    </td>
+                                </tr>
+                            </table>
                         </form>
                     </div>
-
-                    <!--test return-->
+                </div>
+            </div>
+            <hr>
+            <!--3 Cols. 1st data tables for selection and results. 2nd image and results, 3rd as description and glossary-->
+            <div class="row">
+                <div class="col-md-3">
                     <div>
                         <h2>You selected:</h2>
                         <table>
                             <tr>
-                                <td>dog Breed:</td>
+                                <td>Dog Breed:</td>
                                 <td>{{ dog_breed }}</td>
                             </tr>
                             <tr>
-                                <td>dog Origin:</td>
+                                <td>Dog Origin:</td>
                                 <td>{{ dog_origin }}</td>
                             </tr>
                             <tr>
@@ -164,7 +169,10 @@
                             </tr>
 
                         </table>
-                        <h2> Your dog is likely to be {{ dog_result }}.</h2>
+                        <hr>
+                        <br>
+                        <h2> Your dog is likely
+                            <br> to be {{ dog_result }}</h2>
                         <table>
                             <th>Result</th>
                             <th>Probability</th>
@@ -186,18 +194,22 @@
                             </tr>
                         </table>
                     </div>
-
-
-                    <!-- End Page Content -->
                 </div>
+                <!--2nd col-->
+                <div class="col-md-3">
+                    <img src="{{  dog_img }}">
+                </div>
+            </div>
+            <!-- End Page Content -->
+        </div>
 
-                <!-- Footer -->
-                <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large">
+        <!-- Footer -->
+        <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large">
 
-                    <i class="fa fa-linkedin w3-hover-opacity"></i>
-                    <i style="font-size:24px" class="fa">&#xf09b;</i>
-                    <p>Created by <a href="https://github.com/chris-krokus/Project-3-Group-4" target="_blank" class="w3-hover-text-green">.</a></p>
-                </footer>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+            <i style="font-size:24px" class="fa">&#xf09b;</i>
+            <p>Created by <a href="https://github.com/chris-krokus/Project-3-Group-4" target="_blank" class="w3-hover-text-green">.</a></p>
+        </footer>
 
     </body>
 
