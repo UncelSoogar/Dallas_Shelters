@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<title>Work In Progress</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<head>
+    <title>Progress</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Button Stylesheet -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <!-- JQuery and Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <body>
+        <!-- Navbar w/ Dropdown (Need to link to other pages)-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dashboards</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item " href="/dash_main">Cat & Dog<span class="sr-only"></span></a>
+                            <a class="dropdown-item " href="/dash_cat">Cat  <span class="sr-only"></span></a>
+                            <a class="dropdown-item" href="/dash_dog">Dog </a>
+                    </li>
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Predictions</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item " href="/cat_predictions">Cat Prediction <span class="sr-only"></span></a>
+                            <a class="dropdown-item" href="/dog_predictions">Dog Predictions</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/methodology">Methodology</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About Us</a>
+                    </li>
+                </ul>
+                </div>
+        </nav>
+</head>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+        
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        
+        .column {
+            float: left;
+            width: 25%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+        
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
+        
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .container {
+            padding: 0 16px;
+        }
+        
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        .title {
+            color: grey;
+        }
+        
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h2>Meet The Team</h2>
+    </center>
+    <br>
+
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="CL_Headshot.png" alt="Jane" style="width:100%">
+                <div class="container">
+                    <h2>Chris Lichliter</h2>
+                    <p class="title">Machine Learning</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button style="font-size:24px"><i class="fa fa-linkedin"></i></button>
+                        <button style="font-size:24px"><i class="fa fa-github-square"></i></button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="CK Headshot.png" alt="Mike" style="width:100%">
+                <div class="container">
+                    <h2>Chris Krokus</h2>
+                    <p class="title">Tableau Designer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button style="font-size:24px"><i class="fa fa-linkedin"></i></button>
+                        <button style="font-size:24px"><i class="fa fa-github-square"></i></button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="Ana G Headshot.png" alt="John" style="width:100%">
+                <div class="container">
+                    <h2>Ana Gill</h2>
+                    <p class="title">Tableau Designer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button style="font-size:24px"><i class="fa fa-linkedin"></i></button>
+                        <button style="font-size:24px"><i class="fa fa-github-square"></i></button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="80-805523_default-avatar-svg-png-icon-free-download-264157.png" alt="Mike" style="width:100%">
+                <div class="container">
+                    <h2>Christion Lankford</h2>
+                    <p class="title">Front End</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button style="font-size:24px"><i class="fa fa-linkedin"></i></button>
+                        <button style="font-size:24px"><i class="fa fa-github-square"></i></button></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--Footer-->
+    <div>
+        <div style="background-color: #671e97;">
+            <footer class=" container-fluid alert alert-secondary" style="text-align: center">
+                <span>
+                <h4>Design and analysis by: <a href="https://github.com/anag33">Ana Gill,</a> <a href="https://github.com/chris-krokus">Chris Krokus,</a> <a href="https://github.com/Chriztion">Christion Lankford,</a> <a href="https://github.com/UncelSoogar">Chris Lichliter,</a>     Source Code Hosted on <a href="https://github.com/Chriztion/Project2-Group-4">GitHub.</a>   Data from <a href="https://earthquake.usgs.gov/">United States Geological Survey</a></h4>
+            </span>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>
+</body>
+
+</html>
