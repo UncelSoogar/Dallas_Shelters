@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>dog Predictions</title>
+<title>Dog Predictions</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -34,6 +34,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/"><img src="../static/imgs/logo.gif" width="50"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -68,26 +69,25 @@
     </nav>
 
 
-    <body>
 
-        <!-- !PAGE CONTENT! -->
-        <!-- Our rows function in containers (grid created). -->
+    <!-- !PAGE CONTENT! -->
+    <!-- Our rows function in containers (grid created). -->
 
 
-        <!-- Creates the Overall Grid -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <h1>Dog Predictions</h1>
-                    </div>
-                    <div class="row">
-                        <form method="POST" action="/dog_predict">
-                            <table>
-                                <tr>
-                                    <td class="form-group">
-                                        <label for="dog_breed"> Dog Breed </label>
-                                        <select class="form-control" id="dog_breed" name="dog_breed">
+    <!-- Creates the Overall Grid -->
+    <div class="container-fluid" style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px; min-height: 85vh;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <h1>Dog Predictions</h1>
+                </div>
+                <div class="row">
+                    <form method="POST" action="/dog_predict">
+                        <table>
+                            <tr>
+                                <td class="form-group">
+                                    <label for="dog_breed"> <b>Dog Breed</b> </label>
+                                    <select class="form-control" id="dog_breed" name="dog_breed">
                                                 <option value ="Chihuahua">Chihuahua</option>
                                                 <option value ="Corgi">Corgi</option>
                                                 <option value = "Pitbull">Pitbull</option>
@@ -97,123 +97,121 @@
                                                 <option value = "Terrier">Terrier</option>
                                                 <option value = "Other">Other</option>
                                             </select>
-                                    </td>
-                                    <td class="form-group">
-                                        <label for="dog_origin">Origin </label>
-                                        <select class="form-control" id="dog_origin" name="dog_origin">
+                                </td>
+                                <td class="form-group">
+                                    <label for="dog_origin"><b>Origin</b> </label>
+                                    <select class="form-control" id="dog_origin" name="dog_origin">
                                                 <option value ="Field">Field</option>
                                                 <option value ="Over the Counter">Over the Counter</option>
                                         </select>
-                                    </td>
-                                    <td class="form-group">
-                                        <label for="dog_chip"> Chip Status </label>
-                                        <select class="form-control" id="dog_chip" name="dog_chip">
+                                </td>
+                                <td class="form-group">
+                                    <label for="dog_chip"> <b>Chip Status</b> </label>
+                                    <select class="form-control" id="dog_chip" name="dog_chip">
                                                 <option value ="Chip">Chip</option>
                                                 <option value ="No Chip">No Chip</option>
                                                 <option value ="Unable to Scan">Unable to Scan</option>
                                             </select>
-                                    </td>
-                                    <td class="form-group">
-                                        <label for="dog_intake"> Intake Condition </label>
-                                        <select class="form-control" id="dog_intake" name="dog_intake">
+                                </td>
+                                <td class="form-group">
+                                    <label for="dog_intake"> <b>Intake Condition</b> </label>
+                                    <select class="form-control" id="dog_intake" name="dog_intake">
                                                 <option value = "Healthy">Healthy</option>
                                                 <option value = "Rehabilitable, Non-Contagious">Rehabilitable, Non-Contagious</option>
                                                 <option value = "Manageable, Non-Contagious">Manageable, Non-Contagious</option>
                                                 <option value = "Untreatable, Non-Contagious">Untreatable, Non-Contagious</option>
                                                 <option value = "Contagious">Contagious</option>
                                             </select>
-                                    </td>
-                                    <td class="form-group">
-                                        <label for="dog_days" class="form-label">Length of Stay(Days)</label>
-                                        <div>
-                                            <input type="text" class="form-control" id="dog_days" name="dog_days">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <fieldset class="form-group">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-
-                                        </fieldset>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <!--3 Cols. 1st data tables for selection and results. 2nd image and results, 3rd as description and glossary-->
-            <div class="row">
-                <div class="col-md-3">
-                    <div>
-                        <h2>You selected:</h2>
-                        <table>
-                            <tr>
-                                <td>Dog Breed:</td>
-                                <td>{{ dog_breed }}</td>
-                            </tr>
-                            <tr>
-                                <td>Dog Origin:</td>
-                                <td>{{ dog_origin }}</td>
-                            </tr>
-                            <tr>
-                                <td>Chip Status:</td>
-                                <td>{{ dog_chip }}</td>
-                            </tr>
-                            <tr>
-                                <td>Intake Condition:</td>
-                                <td>{{ dog_intake }}</td>
-                            </tr>
-                            <tr>
-                                <td>Length of Stay:</td>
-                                <td>{{ dog_days }}</td>
-                            </tr>
-
-                        </table>
-                        <hr>
-                        <br>
-                        <h2> Your dog is likely
-                            <br> to be {{ dog_result }}</h2>
-                        <table>
-                            <th>Result</th>
-                            <th>Probability</th>
-                            <tr>
-                                <td>Adopted:</td>
-                                <td>{{ adopt_probs }} </td>
-                            </tr>
-                            <tr>
-                                <td>Euthanized:</td>
-                                <td>{{ euth_probs }} </td>
-                            </tr>
-                            <tr>
-                                <td>Returned to Owner:</td>
-                                <td>{{ owner_probs }} </td>
-                            </tr>
-                            <tr>
-                                <td>Transfer/Foster:</td>
-                                <td>{{ trans_probs }} </td>
+                                </td>
+                                <td class="form-group">
+                                    <label for="dog_days" class="form-label"><b>Length of Stay(Days)</b></label>
+                                    <div>
+                                        <input type="text" class="form-control" id="dog_days" name="dog_days">
+                                    </div>
+                                </td>
                             </tr>
                         </table>
-                    </div>
-                </div>
-                <!--2nd col-->
-                <div class="col-md-3">
-                    <img src="{{  dog_img }}">
-                </div>
-            </div>
-            <!-- End Page Content -->
-        </div>
 
-        <!--Footer-->
-        <div>
-            <div style="background-color: #671e97;">
-                <footer class=" container-fluid alert alert-secondary" style="text-align: center">
-                    <span>
-                <h4>Design and analysis by: <a href="https://github.com/anag33">Ana Gill,</a> <a href="https://github.com/chris-krokus">Chris Krokus,</a> <a href="https://github.com/Chriztion">Christion Lankford,</a> <a href="https://github.com/UncelSoogar">Chris Lichliter,</a>     Source Code Hosted on <a href="https://github.com/Chriztion/Project2-Group-4">GitHub.</a>   Data from <a href="https://www.dallasopendata.com/" target="_blank">Dallas OpenData</a>.</h4>
-            </span>
-                </footer>
+                        <fieldset class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </fieldset>
+
+                    </form>
+                </div>
             </div>
         </div>
-    </body>
+        <hr>
+        <!--3 Cols. 1st data tables for selection and results. 2nd image and results, 3rd as description and glossary-->
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+
+                    <table class="table table-active table-hover">
+                        <tr>
+                            <td style="border: 1px solid black"><b>Dog Breed:</b></td>
+                            <td style="border: 1px solid black">{{ dog_breed }}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black"><b>Dog Origin:</b></td>
+                            <td style="border: 1px solid black">{{ dog_origin }}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black"><b>Chip Status:</b></td>
+                            <td style="border: 1px solid black">{{ dog_chip }}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black"><b>Intake Condition:</b></td>
+                            <td style="border: 1px solid black">{{ dog_intake }}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black"><b>Length of Stay:</b></td>
+                            <td style="border: 1px solid black">{{ dog_days }}</td>
+                        </tr>
+
+                    </table>
+
+                    <h4>Your dog is likely to be {{ dog_result }}</h4>
+                    <table class="table table-active table-hover">
+                        <th style="border: 1px solid black">Result</th>
+                        <th style="border: 1px solid black">Probability</th>
+                        <tr>
+                            <td style="border: 1px solid black"><b>Adopted:</b></td>
+                            <td style="border: 1px solid black">{{ adopt_probs }} </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black"><b>Euthanized:</b></td>
+                            <td style="border: 1px solid black">{{ euth_probs }} </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black"><b>Returned to Owner:</b></td>
+                            <td style="border: 1px solid black">{{ owner_probs }} </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black"><b>Transfer/Foster:</b>b</td>
+                            <td style="border: 1px solid black">{{ trans_probs }} </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--2nd col-->
+            <div class="col-md-3">
+                <img src="{{  dog_img }}">
+            </div>
+        </div>
+        <!-- End Page Content -->
+    </div>
+
+    <!--Footer-->
+    <div>
+        <div style="background-color: #671e97;">
+            <footer class=" container-fluid alert alert-secondary" style="text-align: center">
+                <span>
+                    <h4>Design and analysis by: <a href="https://github.com/anag33" target="_blank">Ana Gill,</a> <a href="https://github.com/chris-krokus" target="_blank">Chris Krokus,</a> <a href="https://github.com/Chriztion" target="_blank">Christion Lankford,</a> <a href="https://github.com/UncelSoogar" target="_blank">Chris Lichliter,</a>     Source Code Hosted on <a href="https://github.com/Chriztion/Project2-Group-4" target="_blank">GitHub.</a>   Data from <a href="https://www.dallasopendata.com/" target="_blank">Dallas OpenData</a>.</h4>
+                </span>
+            </footer>
+        </div>
+    </div>
+</body>
 
 </html>
