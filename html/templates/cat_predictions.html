@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
     body,
     h1 {
@@ -33,6 +34,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/"><img src="../static/imgs/logo.gif" width="50"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -44,7 +46,8 @@
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dashboards</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item " href="/dash_main">Cat & Dog<span class="sr-only"></span></a>
+                        <a class="dropdown-item " href="/dash_main">Main Dashboard<span class="sr-only"></span></a>
+                        <a class="dropdown-item " href="/dash_cat_dog">Cat & Dog<span class="sr-only"></span></a>
                         <a class="dropdown-item " href="/dash_cat">Cat  <span class="sr-only"></span></a>
                         <a class="dropdown-item" href="/dash_dog">Dog </a>
                 </li>
@@ -73,7 +76,7 @@
 
 
     <!-- Creates the Overall Grid -->
-    <div class="container">
+    <div class="container-fluid" style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px; min-height: 85vh;">
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
@@ -84,7 +87,7 @@
                         <table>
                             <tr>
                                 <td class="form-group">
-                                    <label for="cat_breed"> Cat Breed </label>
+                                    <label for="cat_breed"><b>Cat Breed</b> </label>
                                     <select class="form-control" id="cat_breed" name="cat_breed">
                                             <option value ="Short Hair">Short Hair</option>
                                             <option value ="Medium Hair">Medium Hair</option>
@@ -92,14 +95,14 @@
                                         </select>
                                 </td>
                                 <td class="form-group">
-                                    <label for="cat_origin">Origin </label>
+                                    <label for="cat_origin"><b>Animal Origin</b></label>
                                     <select class="form-control" id="cat_origin" name="cat_origin">
                                             <option value ="Field">Field</option>
                                             <option value ="Over the Counter">Over the Counter</option>
                                     </select>
                                 </td>
                                 <td class="form-group">
-                                    <label for="cat_chip"> Chip Status </label>
+                                    <label for="cat_chip"><b>Chip Status</b> </label>
                                     <select class="form-control" id="cat_chip" name="cat_chip">
                                             <option value ="Chip">Chip</option>
                                             <option value ="No Chip">No Chip</option>
@@ -107,7 +110,7 @@
                                         </select>
                                 </td>
                                 <td class="form-group">
-                                    <label for="cat_intake"> Intake Condition </label>
+                                    <label for="cat_intake"><b>Intake Condition</b></label>
                                     <select class="form-control" id="cat_intake" name="cat_intake">
                                             <option value = "Healthy">Healthy</option>
                                             <option value = "Rehabilitable, Non-Contagious">Rehabilitable, Non-Contagious</option>
@@ -117,93 +120,96 @@
                                         </select>
                                 </td>
                                 <td class="form-group">
-                                    <label for="cat_days" class="form-label">Length of Stay(Days)</label>
+                                    <label for="cat_days" class="form-label"><b>Length of Stay(Days)</b></label>
                                     <div>
                                         <input type="text" class="form-control" id="cat_days" name="cat_days">
                                     </div>
                                 </td>
-                                <td>
-                                    <fieldset class="form-group">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-
-                                    </fieldset>
-                                </td>
                             </tr>
                         </table>
+                        <fieldset class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </fieldset>
+
                     </form>
                 </div>
             </div>
         </div>
         <hr>
         <!--3 Cols. 1st data tables for selection and results. 2nd image and results, 3rd as description and glossary-->
+
         <div class="row">
             <div class="col-md-3">
                 <div>
-                    <h2>You selected:</h2>
-                    <table>
+                    <table class="table table-active table-hover">
                         <tr>
-                            <td>Cat Breed:</td>
-                            <td>{{ cat_breed }}</td>
+                            <td style="border: 1px solid black"><b>Cat Breed:</b></td>
+                            <td style="border: 1px solid black">{{ cat_breed }}</td>
                         </tr>
                         <tr>
-                            <td>Cat Origin:</td>
-                            <td>{{ cat_origin }}</td>
+                            <td style="border: 1px solid black"><b>Cat Origin:</b></td>
+                            <td style="border: 1px solid black">{{ cat_origin }}</td>
                         </tr>
                         <tr>
-                            <td>Chip Status:</td>
-                            <td>{{ cat_chip }}</td>
+                            <td style="border: 1px solid black"><b>Chip Status:</b></td>
+                            <td style="border: 1px solid black">{{ cat_chip }}</td>
                         </tr>
                         <tr>
-                            <td>Intake Condition:</td>
-                            <td>{{ cat_intake }}</td>
+                            <td style="border: 1px solid black"><b>Intake Condition:</b></td>
+                            <td style="border: 1px solid black">{{ cat_intake }}</td>
                         </tr>
                         <tr>
-                            <td>Length of Stay:</td>
-                            <td>{{ cat_days }}</td>
+                            <td style="border: 1px solid black"><b>Length of Stay:</b></td>
+                            <td style="border: 1px solid black">{{ cat_days }}</td>
                         </tr>
 
                     </table>
-                    <hr>
-                    <br>
-                    <h2> Your cat is likely
-                        <br> to be {{ cat_result }}</h2>
-                    <table>
-                        <th>Result</th>
-                        <th>Probability</th>
+                </div>
+                <!--2nd col-->
+
+                <div>
+                    <h4> Your cat is likely to be {{ cat_result }}</h4>
+                    <table class="table table-active table-hover">
+                        <th style="border: 1px solid black">Result</th>
+                        <th style="border: 1px solid black">Probability</th>
                         <tr>
-                            <td>Adopted:</td>
-                            <td>{{ adopt_probs }} </td>
+                            <td style="border: 1px solid black"><b>Adopted:</b></td>
+                            <td style="border: 1px solid black">{{ adopt_probs }} </td>
                         </tr>
                         <tr>
-                            <td>Euthanized:</td>
-                            <td>{{ euth_probs }} </td>
+                            <td style="border: 1px solid black"><b>Euthanized:</b></td>
+                            <td style="border: 1px solid black">{{ euth_probs }} </td>
                         </tr>
                         <tr>
-                            <td>Returned to Owner:</td>
-                            <td>{{ owner_probs }} </td>
+                            <td style="border: 1px solid black"><b>Returned to Owner:</b></td>
+                            <td style="border: 1px solid black">{{ owner_probs }} </td>
                         </tr>
                         <tr>
-                            <td>Transfer/Foster:</td>
-                            <td>{{ trans_probs }} </td>
+                            <td style="border: 1px solid black"><b>Transfer/Foster:</b></td>
+                            <td style="border: 1px solid black">{{ trans_probs }} </td>
                         </tr>
                     </table>
                 </div>
             </div>
-            <!--2nd col-->
-            <div class="col-md-3">
+            <!--3rd col-->
+            <div class="col-md-6">
                 <img src="{{  cat_img }}">
             </div>
         </div>
-        <!-- End Page Content -->
     </div>
+    <!-- End Page Content -->
 
-    <!-- Footer -->
-    <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large">
-
-        <i class="fa fa-linkedin w3-hover-opacity"></i>
-        <i style="font-size:24px" class="fa">&#xf09b;</i>
-        <p>Created by <a href="https://github.com/chris-krokus/Project-3-Group-4" target="_blank" class="w3-hover-text-green">.</a></p>
-    </footer>
+    <!--Footer-->
+    <div>
+        <div style="background-color: #671e97;">
+            <footer class=" container-fluid alert alert-secondary" style="text-align: center">
+                <span>
+                <h4>Design and analysis by: <a href="https://github.com/anag33" target="_blank">Ana Gill,</a> <a href="https://github.com/chris-krokus" target="_blank">Chris Krokus,</a> <a href="https://github.com/Chriztion" target="_blank">Christion Lankford,</a> <a href="https://github.com/UncelSoogar" target="_blank">Chris Lichliter,</a>     Source Code Hosted on <a href="https://github.com/Chriztion/Project2-Group-4" target="_blank">GitHub.</a>   Data from <a href="https://www.dallasopendata.com/" target="_blank">Dallas OpenData</a>.</h4>
+            </span>
+            </footer>
+        </div>
+    </div>
 
 </body>
 

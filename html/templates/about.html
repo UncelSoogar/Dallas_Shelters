@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<title>About Us</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<head>
+    <title>Progress</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Button Stylesheet -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <!-- JQuery and Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+        
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        
+        .column {
+            float: left;
+            width: 25%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+        
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
+        
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .container {
+            padding: 0 16px;
+        }
+        
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        .title {
+            color: grey;
+        }
+        
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar w/ Dropdown (Need to link to other pages)-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/"><img src="../static/imgs/logo.gif" width="50"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dashboards</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item " href="/dash_cat">Cat  <span class="sr-only"></span></a>
+                        <a class="dropdown-item" href="/dash_dog">Dog </a>
+                        <a class="dropdown-item " href="/dash_main">Main Dashboard<span class="sr-only"></span></a>
+                        <a class="dropdown-item " href="/dash_cat_dog">Cat & Dog<span class="sr-only"></span></a>
+
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Predictions</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item " href="/cat_predictions">Cat Prediction <span class="sr-only"></span></a>
+                        <a class="dropdown-item" href="/dog_predictions">Dog Predictions</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/methodology">Methodology</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/about">About Us</a>
+                </li>
+            </ul>
+            </div>
+    </nav>
+
+
+    <div class="container-fluid" style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px; min-height: 85vh;">
+
+        <center>
+            <h2>Meet The Team</h2>
+        </center>
+        <br>
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img src="static/imgs/CL_Headshot.jpg" alt="Lichliter" style="width:300px; margin-left:20px">
+                    <div class="container">
+                        <h2>Chris Lichliter</h2>
+                        <p class="title">Machine Learning</p>
+                        <p>Chris Lichliter is the Lead Anesthesia Technician at Baylor University Medical Center. Chris enrolled in the SMU Data Science Bootcamp to help identify new ways to improve the lives of his patients and greater community. In his
+                            spare time Chris studies history, plays hockey, and volunteers as a coach with the Rowlett Hockey Association.</p>
+                        <p>lichliter@ymail.com</p>
+                        <a href="https://github.com/UncelSoogar" target="_blank"><button style="font-size:24px"><i class="fa fa-github-square"></i></button></a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img src="static/imgs/lastNavyCropped.PNG" alt="Krokus" style="width:250px; margin-left:20px">
+                    <div class="container">
+                        <h2>Chris Krokus</h2>
+                        <p class="title">Tableau Designer</p>
+                        <p>Chris Krokus is an experienced salesperson for Gartner Inc. Driven by the pursuit of knowledge, Chris enrolled in SMU’s Data Science Boot Camp to prepare himself for the future. In his spare time, he enjoys running/cycling and
+                            volunteering with the Travis Manion Foundation to empower fellow veterans and families of fallen heroes to develop character in future generations. He currently resides in the Lower Greenville area of Dallas, TX with his 9.5
+                            year-old Golden Retriever/Chow Chow mixed son named Bach.</p>
+                        <p>ckrokus@gmail.com</p>
+                        <a href="https://github.com/chris-krokus" target="_blank"><button style="font-size:24px"><i class="fa fa-github-square"></i></button></a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img src="static/imgs/Ana_G_Headshot.png" alt="Gill" style="width:300px; margin-left:20px">
+                    <div class="container">
+                        <h2>Ana Gill</h2>
+                        <p class="title">Tableau Designer</p>
+                        <p>Has worked at Ericsson for over 7 years in Supply and Chain Operations as an Order Fulfillment Specialist III/VB Programmer Accomplishments: Assisted with Systems Support design and implementation for Partner's efficient transition
+                            to LMS System significantly minimizing downtime and costs. Reduced number of sales order cancellations by 60% with the introduction of VB script macros to validate and review created SOs in SAP system. Programmed, planned,
+                            implemented and maintained the HR Web Portal.
+                        </p>
+                        <p>ana.gill@yahoo.com</p>
+                        <a href="https://github.com/anag33" target="_blank"><button style="font-size:24px"><i class="fa fa-github-square"></i></button></a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img src="static/imgs/Lankford.jpg" alt="Lankford" style="width:215px; margin-left:20px">
+                    <div class="container">
+                        <h2>Christion Lankford</h2>
+                        <p class="title">Front End</p>
+                        <p>Since graduating from high school and the start of college, Christion has spent his summer breaks participating in programming competitions all around the country. He used the experience from these events to teach classes about
+                            basic coding and to teach himself about the logic when approaching team projects or individual.</p>
+                        <p>Shy@innocent.com</p>
+                        <a href="https://github.com/Chriztion" target="_blank"><button style="font-size:24px"><i class="fa fa-github-square"></i></button></a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--Footer-->
+    <div>
+        <div style="background-color: #671e97;">
+            <footer class=" container-fluid alert alert-secondary" style="text-align: center">
+                <span>
+                <h4>Design and analysis by: <a href="https://github.com/anag33" target="_blank">Ana Gill,</a> <a href="https://github.com/chris-krokus" target="_blank">Chris Krokus,</a> <a href="https://github.com/Chriztion" target="_blank">Christion Lankford,</a> <a href="https://github.com/UncelSoogar" target="_blank">Chris Lichliter,</a>     Source Code Hosted on <a href="https://github.com/Chriztion/Project2-Group-4" target="_blank">GitHub.</a>   Data from <a href="https://www.dallasopendata.com/" target="_blank">Dallas OpenData</a>.</h4>
+            </span>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>
+</body>
+
+</html>

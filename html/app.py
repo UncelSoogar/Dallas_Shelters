@@ -1,5 +1,4 @@
 from flask import Flask, render_template, url_for, request
-from flask_bootstrap import Bootstrap
 import pickle
 import pandas as pd
 from sklearn.ensemble import GradientBoostingClassifier
@@ -20,6 +19,10 @@ infile = open(filename,'rb')
 cat_model = pickle.load(infile)
 infile.close()
 
+@app.route('/dash_cat_dog')
+def dash_cat_dog():
+    return render_template('dash_cat_dog.html')
+
 filename = 'static/models/dog_scaler.sav'
 infile = open(filename,'rb')
 dog_scaler = pickle.load(infile)
@@ -29,7 +32,6 @@ filename = 'static/models/dog_model.sav'
 infile = open(filename,'rb')
 dog_model = pickle.load(infile)
 infile.close()
-Bootstrap(app)
 
 
 #ROUTES FOR PAGES
@@ -132,7 +134,7 @@ def cat_predict():
         try:
             los = int(cat_days)
         except(ValueError):
-            cat_days = "INTEGERS ONLY"
+            cat_days = "0 (INTEGERS ONLY)"
 
 
         #Create a cat using values from user
@@ -162,10 +164,10 @@ def cat_predict():
 
         #probs
         cat_probs = cat_model.predict_proba(test_cat)
-        adopt_probs = f'{round(cat_probs[0][0], 2) *100}%'
-        euth_probs = f'{round(cat_probs[0][1], 2) *100}%'
-        owner_probs = f'{round(cat_probs[0][2], 2) *100}%'
-        trans_probs = f'{round(cat_probs[0][3], 2) *100}%'
+        adopt_probs = f'{round((cat_probs[0][0] *100), 2)}%'
+        euth_probs = f'{round((cat_probs[0][1] *100), 2)}%'
+        owner_probs = f'{round((cat_probs[0][2]*100), 2)}%'
+        trans_probs = f'{round((cat_probs[0][3]*100), 2)}%'
 
         return render_template('cat_predictions.html', cat_breed = cat_breed, cat_origin = cat_origin,
          cat_chip = cat_chip, cat_intake = cat_intake, cat_days = cat_days, cat_result = cat_result,
@@ -257,7 +259,7 @@ def dog_predict():
         try:
             los = int(dog_days)
         except(ValueError):
-            dog_days = "INTEGERS ONLY"
+            dog_days = "0 (INTEGERS ONLY)"
 
 
         #Create a dog using values from user
@@ -285,10 +287,10 @@ def dog_predict():
 
         #probs
         dog_probs = dog_model.predict_proba(test_dog)
-        adopt_probs = f'{round(dog_probs[0][0], 2) *100}%'
-        euth_probs = f'{round(dog_probs[0][1], 2) *100}%'
-        owner_probs = f'{round(dog_probs[0][2], 2) *100}%'
-        trans_probs = f'{round(dog_probs[0][3], 2) *100}%'
+        adopt_probs = f'{round((dog_probs[0][0] * 100), 2)}%'
+        euth_probs = f'{round((dog_probs[0][1] * 100), 2)}%'
+        owner_probs = f'{round((dog_probs[0][2] * 100), 2)}%'
+        trans_probs = f'{round((dog_probs[0][3] * 100), 2)}%'
 
         return render_template('dog_predictions.html', dog_breed = dog_breed, dog_origin = dog_origin,
          dog_chip = dog_chip, dog_intake = dog_intake, dog_days = dog_days, dog_result = dog_result,
